@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "colordiff": {
+      "commandName": "Project",
+      "commandLineArgs": "30 200 100 155 20 210"
+    }
+  }
+}
