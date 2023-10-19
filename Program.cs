@@ -26,7 +26,6 @@ internal class Program
                 return;
             }
             frgb[i] = ichannel[i] / 255.0f;
-            Console.WriteLine($"{i}: {ichannel[i]} = {frgb[i]}");
         }
 
         int loops = 0;
@@ -103,6 +102,11 @@ internal class Program
         {
             float y3 = y * y * y;
             y *= (y3 + 2.0f * x) / (2.0f * y3 + x);
+
+            // Newton's method looks like this, but requires about 2X iterations
+            // for the same error range, and ends up being approximately equivalent
+            // to the .NET Math.Cbrt call.
+            // y = (2.0f * y + x / (y * y)) * 0.333333333f;
         }
         return y;
     }
