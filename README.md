@@ -1,6 +1,10 @@
 # colordiff
 
-A simple console program to test the performance of RGB color similarity by conversion to [OKLab](https://bottosson.github.io/posts/oklab/) space. This optionally uses a Halley iterator to replace the costly cube-root calculations. One million loops on my machine takes about 210ms for true cube-roots, and about 160ms for the Halley method.
+A simple console program to test the performance of RGB color similarity by conversion to [OKLab](https://bottosson.github.io/posts/oklab/) space. This optionally uses a Halley iterator to replace the costly cube-root calculations. One million loops on my machine takes about 210ms for true cube-roots, and about 160ms for the Halley method. (Of course, that's serial CPU execution and not parallel GPU execution.)
+
+A visual representation I posted [here](https://www.shadertoy.com/view/cdcBDs) on Shadertoy (click the "play" button):
+
+<iframe width="640" height="360" frameborder="0" src="https://www.shadertoy.com/embed/cdcBDs?gui=true&t=10&paused=true&muted=false" allowfullscreen></iframe>
 
 Usage:
 

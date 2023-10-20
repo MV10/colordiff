@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics;
-using System.Reflection.Metadata.Ecma335;
 
 namespace colordiff;
 
@@ -40,7 +39,7 @@ internal class Program
 
         if(loops == 0)
         {
-            Console.WriteLine($"Distance: {Solve(false)}");
+            Console.WriteLine($"Distance: {Solve(false)} (lower is more similar, 0.0 is identical)");
             Console.WriteLine($"  color1 Lab ({fok[0]:0.0000000000}, {fok[1]:0.0000000000}, {fok[2]:0.0000000000})");
             Console.WriteLine($"  color1 RGB ({frgb[0]:0.0000000000}, {frgb[1]:0.0000000000}, {frgb[2]:0.0000000000})");
             Console.WriteLine($"  color2 Lab ({fok[3]:0.0000000000}, {fok[4]:0.0000000000}, {fok[5]:0.0000000000})");
@@ -86,9 +85,9 @@ internal class Program
         float oa = 0.2119034982f * r + 0.6806995451f * g + 0.1073969566f * b;
         float ob = 0.0883024619f * r + 0.2817188376f * g + 0.6299787005f * b;
 
-        float lr = (!useHalley) ? (float)Math.Cbrt(ol) : halley_cube_root(ol);
-        float ar = (!useHalley) ? (float)Math.Cbrt(oa) : halley_cube_root(oa);
-        float br = (!useHalley) ? (float)Math.Cbrt(ob) : halley_cube_root(ob);
+        float lr = (!useHalley) ? MathF.Cbrt(ol) : halley_cube_root(ol);
+        float ar = (!useHalley) ? MathF.Cbrt(oa) : halley_cube_root(oa);
+        float br = (!useHalley) ? MathF.Cbrt(ob) : halley_cube_root(ob);
 
         fok[offset] =     0.2104542553f * lr + 0.7936177850f * ar - 0.0040720468f * br;
         fok[offset + 1] = 1.9779984951f * lr - 2.4285922050f * ar + 0.4505937099f * br;
